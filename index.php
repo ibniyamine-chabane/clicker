@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/style.css">
     <title>Clicker</title>
 </head>
 <body>
@@ -16,6 +17,11 @@
             <h1>Bienvenu sur le clicker</h1>
             <h2 id="compteur"></h2>
             <button class="clk"><a href="#">click sur ce boutton</a></button>
+        </section>
+        <section id="boutique">
+            <div id="">
+
+            </div>
         </section>
     </main>
     <footer>

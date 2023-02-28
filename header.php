@@ -3,7 +3,7 @@
         <ul>
             <li><a href="index.php">Accueil</a></li>
             <?php if (!empty($_SESSION['login'])): ?>
-                <li><a href="todolist.php">To do list</a></li>
+                <!--<li><a href="todolist.php">To do list</a></li>-->
                 <li><a href="profil.php">Profil</a></li>
                 <li><a href="logout.php">Se déconnecter</a></li>
             <?php else: ?>
