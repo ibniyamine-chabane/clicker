@@ -24,6 +24,14 @@ counter.innerText = count;
 displayBonusClick.innerText = bonusClickPrice
 displayAutoClick.innerText = autoClickPrice
 
+if(typeof(localStorage) !== "undefined") {
+    count = parseInt(localStorage.getItem("count")) || 0;
+    bonusClickPrice = parseInt(localStorage.getItem("bonusClickPrice")) || 0;
+    autoClickPrice = parseInt(localStorage.getItem("autoClickPrice")) || 0;
+    lvlBonusClickPlus = parseInt(localStorage.getItem("lvlClick")) || 0;
+    lvlAutoClickPlus = parseInt(localStorage.getItem("lvlAuto")) || 0;
+ }
+
 
 //////////////////////////les fonctions\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -80,7 +88,34 @@ function buyAutoClick() {
     }
 }
 
-//bonus + au click
+///////////////enregistrement dans le localStorage\\\\\\\\\\\\\\\\
+
+function registerLocalStorage() {
+ 
+let registerCount = () => localStorage.setItem("count",count)
+setInterval(registerCount,100)
+//regist du prix
+let registerClickPrice = () => localStorage.setItem("bonusClickPrice",bonusClickPrice)
+setInterval(registerClickPrice,100)
+
+let registerAutoClickPrice = () => localStorage.setItem("autoClickPrice",autoClickPrice )
+setInterval(registerAutoClickPrice,100)
+//regist du niveau des achat
+let registerLvlClick = () => localStorage.setItem("lvlClick",lvlBonusClickPlus)
+setInterval(registerLvlClick,100)
+
+let registerLvlAuto = () => localStorage.setItem("lvlAuto", lvlAutoClickPlus)
+setInterval(registerLvlAuto,100)
+
+}
+
+counter.innerHTML = localStorage.getItem("count")
+displayBonusClickPlus.innerHTML = localStorage.getItem("lvlClick")
+displayAutoClickPlus.innerHTML = localStorage.getItem("lvlAuto") 
+displayBonusClick.innerHTML = localStorage.getItem("bonusClickPrice")
+displayAutoClick.innerHTML = localStorage.getItem("autoClickPrice")
+
+//incrémentation au click
 function counterIncrement() {
     count++;         
     counter.innerHTML = count;
@@ -89,17 +124,20 @@ function counterIncrement() {
     }
 }
 
-//le clicker 
+//le clicker sur l'image
 clicker.addEventListener("click",function(){
     counterIncrement();
+    registerLocalStorage()
 })
 
 //les bouttons achat
 btnBuyBonusClick.addEventListener("click",function(){
     buyBonusClick();
+    registerLocalStorage()
 })
 
 btnBuyAutoClick.addEventListener("click",function(){
     buyAutoClick();
+    registerLocalStorage()
 })
 
