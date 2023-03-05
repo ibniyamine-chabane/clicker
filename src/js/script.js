@@ -6,11 +6,10 @@ let lvlBonusClickPlus = 0;
 let lvlAutoClickPlus = 0;
 let bonusActive = 0;
 
-console.log(bonusActive)
+
 //selecteurs 
 let counter = document.querySelector("#compteur")
 let clicker = document.querySelector("#clicker")
-//let messages = document.querySelector("#message")
 let displayBonusClickPlus = document.querySelector("#level-bonus-click")
 let displayAutoClickPlus = document.querySelector("#level-auto-click")
 let displayBonusClick = document.querySelector("#display-price-bonus-click")
@@ -25,14 +24,10 @@ counter.innerText = count;
 displayBonusClick.innerText = bonusClickPrice
 displayAutoClick.innerText = autoClickPrice
 
-console.log(bonusActive)
-//les fonctions
-// function counterIncrement() {
-//     count++;         
-//     //count+= lvlBonusClickPlus - 1;
-//     counter.innerHTML = count;
-// }
 
+//////////////////////////les fonctions\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+//achats
 function buyBonusClick() {
     if (count > bonusClickPrice){ 
         bonusActive = 1;
@@ -45,9 +40,35 @@ function buyBonusClick() {
         
     } else {
         const message = document.getElementsByTagName('p')[0];
-        //message.insertBefore(message, message.nextSibling);
         message.textContent = "Tu n'as pas assez de points";
-        //message.innerHTML = "Tu n'a pas assez de point !";
+        message.style.textAlign = 'center';
+        message.style.height = '16px';
+       
+        setTimeout(function() {
+            message.textContent = "";
+          }, 2000)              
+    }
+}
+
+
+function buyAutoClick() {
+    if (count > autoClickPrice){ 
+        bonusActive = 1;
+        count = count - autoClickPrice;
+        //counter.innerHTML = count;
+        autoClickPrice = autoClickPrice + 200;
+        lvlAutoClickPlus += 1
+        displayAutoClick.innerHTML = autoClickPrice
+        displayAutoClickPlus.innerHTML = lvlAutoClickPlus 
+        function autoClick() {
+            count+= lvlAutoClickPlus;
+            counter.innerHTML = count;
+        }
+        
+        setInterval(autoClick, 2000);
+    } else {
+        const message = document.getElementsByTagName('p')[0];
+        message.textContent = "Tu n'as pas assez de points";
         message.style.textAlign = 'center';
         message.style.height = '16px';
 
@@ -55,15 +76,13 @@ function buyBonusClick() {
         setTimeout(function() {
             //message.remove();
             message.textContent = "";
-          }, 2000);
-        
-        
+          }, 2000);        
     }
 }
 
+//bonus + au click
 function counterIncrement() {
     count++;         
-    //count+= lvlBonusClickPlus - 1;
     counter.innerHTML = count;
     if (bonusActive = 1) {
         count+= lvlBonusClickPlus;
@@ -78,5 +97,9 @@ clicker.addEventListener("click",function(){
 //les bouttons achat
 btnBuyBonusClick.addEventListener("click",function(){
     buyBonusClick();
+})
+
+btnBuyAutoClick.addEventListener("click",function(){
+    buyAutoClick();
 })
 

@@ -23,7 +23,7 @@
                         <a id="btn-buy-bonus-click" class="myButton">Buy</a>
                     </div>
                     <div class="prices-auto-click-card">
-                        <p>Bonus click +<span id="level-auto-click"></span>1</p>
+                        <p>Bonus click +<span id="level-auto-click"></span></p>
                         <p>prix : <span id="display-price-auto-click"></span></p>
                         <a id="btn-buy-auto-click" class="myButton">Buy</a>
                     </div>
