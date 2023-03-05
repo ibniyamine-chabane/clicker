@@ -16,13 +16,7 @@ let displayBonusClick = document.querySelector("#display-price-bonus-click")
 let displayAutoClick = document.querySelector("#display-price-auto-click")
 let btnBuyBonusClick = document.querySelector("#btn-buy-bonus-click")
 let btnBuyAutoClick = document.querySelector("#btn-buy-auto-click")
-let btnReset = document.querySelector("#reset")
-
-
-//afficheur de base
-counter.innerText = count;
-displayBonusClick.innerText = bonusClickPrice
-displayAutoClick.innerText = autoClickPrice
+let btnReset = document.querySelector("#btn-reset")
 
 if(typeof(localStorage) !== "undefined") {
     count = parseInt(localStorage.getItem("count")) || 0;
@@ -31,6 +25,14 @@ if(typeof(localStorage) !== "undefined") {
     lvlBonusClickPlus = parseInt(localStorage.getItem("lvlClick")) || 0;
     lvlAutoClickPlus = parseInt(localStorage.getItem("lvlAuto")) || 0;
  }
+
+
+//afficheur de base
+counter.innerText = count;
+displayBonusClick.innerText = bonusClickPrice
+displayAutoClick.innerText = autoClickPrice
+
+
 
 
 //////////////////////////les fonctions\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -73,7 +75,7 @@ function buyAutoClick() {
             counter.innerHTML = count;
         }
         
-        setInterval(autoClick, 2000);
+        setInterval(autoClick, 1000);
     } else {
         const message = document.getElementsByTagName('p')[0];
         message.textContent = "Tu n'as pas assez de points";
@@ -110,10 +112,24 @@ setInterval(registerLvlAuto,100)
 }
 
 counter.innerHTML = localStorage.getItem("count")
-displayBonusClickPlus.innerHTML = localStorage.getItem("lvlClick")
-displayAutoClickPlus.innerHTML = localStorage.getItem("lvlAuto") 
-displayBonusClick.innerHTML = localStorage.getItem("bonusClickPrice")
-displayAutoClick.innerHTML = localStorage.getItem("autoClickPrice")
+displayBonusClickPlus.innerText = localStorage.getItem("lvlClick")
+displayAutoClickPlus.innerText = localStorage.getItem("lvlAuto") 
+displayBonusClick.innerText = localStorage.getItem("bonusClickPrice")
+displayAutoClick.innerText = localStorage.getItem("autoClickPrice")
+
+
+function resetGame() {
+    count = 0;
+    bonusClickPrice = 100;
+    autoClickPrice = 200;
+    lvlBonusClickPlus = 0;
+    lvlAutoClickPlus = 0;
+    bonusActive = 0;
+    counter.innerText = count;
+    displayBonusClick.innerText = bonusClickPrice
+    displayAutoClick.innerText = autoClickPrice
+}
+
 
 //incrémentation au click
 function counterIncrement() {
@@ -141,3 +157,6 @@ btnBuyAutoClick.addEventListener("click",function(){
     registerLocalStorage()
 })
 
+btnReset.addEventListener("click",function (){
+    resetGame()
+})
