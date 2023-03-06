@@ -128,6 +128,8 @@ function resetGame() {
     counter.innerText = count;
     displayBonusClick.innerText = bonusClickPrice
     displayAutoClick.innerText = autoClickPrice
+    displayBonusClickPlus.innerText = lvlAutoClickPlus
+    displayAutoClickPlus.innerText = lvlAutoClickPlus
 }
 
 

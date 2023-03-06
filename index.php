@@ -28,7 +28,7 @@
                         <a id="btn-buy-auto-click" class="myButton">Buy</a>
                     </div>
                     <div class="reset-card">
-                        <p>Réinitialisé le clicker</p>
+                        <p>Réinitialiser le clicker</p>
                         <a id="btn-reset" class="myButton">Reset</a>
                     </div>
                 </div>
