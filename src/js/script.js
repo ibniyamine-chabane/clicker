@@ -52,7 +52,9 @@ function buyBonusClick() {
         const message = document.getElementsByTagName('p')[0];
         message.textContent = "Tu n'as pas assez de points";
         message.style.textAlign = 'center';
-        message.style.height = '16px';
+        message.style.height = '35px';
+        message.style.color = '#f1f3d8';
+        message.style.textShadow = '3px 3px 3px #20201a';
        
         setTimeout(function() {
             message.textContent = "";
@@ -80,7 +82,9 @@ function buyAutoClick() {
         const message = document.getElementsByTagName('p')[0];
         message.textContent = "Tu n'as pas assez de points";
         message.style.textAlign = 'center';
-        message.style.height = '16px';
+        message.style.height = '35px';
+        message.style.color = '#f1f3d8';
+        message.style.textShadow = '3px 3px 3px #20201a';
 
         
         setTimeout(function() {
