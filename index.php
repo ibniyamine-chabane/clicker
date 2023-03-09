@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,7 @@
     <script defer src="src/js/script.js"></script>
     <title>Paimon clicker</title>
 </head>
-    <?php session_start(); include("header.php");?> 
+    <?php include("header.php");?> 
     <main>
         <section>
             <div class="container-clicker">

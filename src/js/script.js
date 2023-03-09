@@ -88,7 +88,6 @@ function buyAutoClick() {
 
         
         setTimeout(function() {
-            //message.remove();
             message.textContent = "";
           }, 2000);        
     }
